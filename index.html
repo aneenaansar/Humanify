@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUMANIFY - Lenis Smooth Scroll</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            height: 200vh;
+            background-color: #1a1a1a;
+        }
+
+        .container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .hero {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .youtube-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw;
+            max-width: 100%;
+            max-height: 100vh;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-heading {
+            color: white;
+            font-size: 5rem;
+            font-weight: 900;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+
+        .second-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 5;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-background">
+                <iframe class="youtube-background" src="https://www.youtube.com/embed/lkqyHdmUpBY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=lkqyHdmUpBY" frameborder="0" allowfullscreen></iframe>
+                <div class="video-overlay"></div>
+            </div>
+            <h1 class="hero-heading">HUMANIFY</h1>
+        </section>
+        <div class="transition-overlay"></div>
+        <section class="second-section" id="second-section">
+            <h2>Welcome to Humanify</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula magna quis tortor efficitur, ac sagittis magna feugiat.</p>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroHeading = document.querySelector('.hero-heading');
+            const heroSection = document.querySelector('.hero');
+            const secondSection = document.querySelector('.second-section');
+            const transitionOverlay = document.querySelector('.transition-overlay');
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true,
+            });
+            function updateAnimations(scrollPos) {
+                const windowHeight = window.innerHeight;
+                const scrollProgress = Math.min(scrollPos / windowHeight, 1);
+                heroHeading.style.transform = `scale(${1 + scrollProgress * 3})`;
+                heroHeading.style.opacity = 1 - (scrollProgress * 1.5);
+                if (scrollProgress > 0.4) {
+                    transitionOverlay.style.opacity = (scrollProgress - 0.4) * 5;
+                    secondSection.style.opacity = Math.min((scrollProgress - 0.5) * 4, 1);
+                    heroSection.style.opacity = 1 - (scrollProgress - 0.4) * 2.5;
+                } else {
+                    transitionOverlay.style.opacity = 0;
+                    secondSection.style.opacity = 0;
+                    heroSection.style.opacity = 1;
+                }
+            }
+            lenis.on('scroll', ({ scroll }) => updateAnimations(scroll));
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+        });
+    </script>
+</body>
+</html>
