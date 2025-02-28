@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUMANIFY - Lenis Smooth Scroll</title>
+    <title>HUMANIFY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Arimo&family=Artifika&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:wght@300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,10 +15,43 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', 'Arial', sans-serif;
             overflow-x: hidden;
             height: 200vh;
             background-color: #1a1a1a;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #118026;
         }
 
         .container {
@@ -50,17 +86,15 @@
 
         .youtube-background {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100vw;
-            height: 56.25vw;
-            max-width: 100%;
-            max-height: 100vh;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             pointer-events: none;
             z-index: -1;
         }
-
+        
         .video-overlay {
             position: absolute;
             top: 0;
@@ -72,91 +106,247 @@
 
         .hero-heading {
             color: white;
-            font-size: 5rem;
-            font-weight: 900;
+            font-size: 9rem;
+            font-weight: 600;
             text-align: center;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            position: relative;
+            z-index: 2;
+            transition: all 0.5s linear;
+            will-change: transform, opacity, letter-spacing;
+            letter-spacing: 0.1em;
+            font-family: var(--uicore-typography--h1-f, "Inter")
         }
 
+        /* Second Section Styles */
         .second-section {
-            position: absolute;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             color: white;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 120px 20px;
+            background-color: #1a1a1a;
             opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            transform: scale(0.8) translateY(50px);
+        }
+
+        .second-section .content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .second-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        }
+
+        .second-section p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            line-height: 1.7;
+            margin: 0 auto 3rem;
+            color: #cccccc;
+            font-weight: 300;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 35px;
+            font-size: 1.1rem;
+            background-color: #2C6737;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .btn:hover {
+            background-color: #118026;
+            transform: translateY(-2px);
         }
 
         .transition-overlay {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: black;
-            z-index: 5;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.5s ease-in-out;
+            background-color: rgba(26, 26, 26, 0);
+            z-index: 1;
+            transition: background-color 0.5s cubic-bezier(0.1, 0.7, 0.1, 1);
+            will-change: background-color;
+        }
+
+        @media (max-width: 768px) {
+            .hero-heading {
+                font-size: 4.5rem;
+            }
+            
+            .second-section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .second-section p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .header {
+                padding: 20px 25px;
+            }
+            
+            .nav {
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <header class="header">
+        <h1></h1>
+        <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#approach">Approach</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
     <div class="container">
         <section class="hero">
             <div class="hero-background">
-                <iframe class="youtube-background" src="https://www.youtube.com/embed/lkqyHdmUpBY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=lkqyHdmUpBY" frameborder="0" allowfullscreen></iframe>
+                <video class="youtube-background" autoplay muted loop playsinline>
+                    <source src="https://v.ftcdn.net/02/20/34/91/700_F_220349126_IfR6SXdBy2mD85IUfdwXX7j3fHumD0IM_ST.mp4" type="video/mp4">
+                </video>
                 <div class="video-overlay"></div>
             </div>
+            <div class="transition-overlay"></div>
             <h1 class="hero-heading">HUMANIFY</h1>
         </section>
-        <div class="transition-overlay"></div>
+        
         <section class="second-section" id="second-section">
-            <h2>Welcome to Humanify</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula magna quis tortor efficitur, ac sagittis magna feugiat.</p>
+            <div class="content">
+                <h2>DIGITAL COMMUNICATION POWERED WITH HUMAN CONNECTION, EMOTION AND SOUL</h2>
+                <p>
+                    At Humanify, we believe that digital communication should be about real connections. 
+                    In a world where technology constantly evolves, the one thing that remains constant 
+                    is the need for human touch. We are a digital marketing agency based in Dubai, United 
+                    Arab Emirates dedicated to bridging the gap between brands and their audiences by 
+                    infusing humanity and culture into every campaign, strategy, and interaction.
+                </p>
+                <div class="buttons">
+                    <button class="btn">OUR NAME IS OUR MISSION</button>
+                    <button class="btn">LET'S HUMANIFY</button>
+                </div>
+            </div>
         </section>
     </div>
+    
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const heroHeading = document.querySelector('.hero-heading');
-            const heroSection = document.querySelector('.hero');
             const secondSection = document.querySelector('.second-section');
+            const heroBackground = document.querySelector('.hero-background');
             const transitionOverlay = document.querySelector('.transition-overlay');
+            
+            // Animation values
+            let currentTextScale = 1;
+            let currentTextOpacity = 1;
+            let currentTextY = 0;
+            let currentLetterSpacing = 0.1;
+            let currentOverlayOpacity = 0;
+            let currentBackgroundOpacity = 1;
+            let currentSectionOpacity = 0;
+            let currentSectionScale = 0.8;
+            let currentSectionY = 50;
+            
+            // Lag factors
+            const textLag = 0.07;
+            const letterSpacingLag = 0.06;
+            const sectionLag = 0.05;
+            const overlayLag = 0.70;
+
             const lenis = new Lenis({
                 duration: 1.2,
                 easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                 smooth: true,
             });
-            function updateAnimations(scrollPos) {
+
+            function updateTargets(scrollPos) {
                 const windowHeight = window.innerHeight;
                 const scrollProgress = Math.min(scrollPos / windowHeight, 1);
-                heroHeading.style.transform = `scale(${1 + scrollProgress * 3})`;
-                heroHeading.style.opacity = 1 - (scrollProgress * 1.5);
-                if (scrollProgress > 0.4) {
-                    transitionOverlay.style.opacity = (scrollProgress - 0.4) * 5;
-                    secondSection.style.opacity = Math.min((scrollProgress - 0.5) * 4, 1);
-                    heroSection.style.opacity = 1 - (scrollProgress - 0.4) * 2.5;
-                } else {
-                    transitionOverlay.style.opacity = 0;
-                    secondSection.style.opacity = 0;
-                    heroSection.style.opacity = 1;
-                }
+                
+                // Calculate target values
+                const targetTextScale = 1 + scrollProgress * 8;
+                const targetTextOpacity = Math.max(0, 1 - (scrollProgress * 1.5));
+                const targetTextY = (1 - targetTextOpacity) * 80;
+                const targetLetterSpacing = 0.1 + (scrollProgress * 1.5);
+                
+                const targetOverlayOpacity = Math.min(1, (scrollProgress - 0.4) * 2);
+                const targetBackgroundOpacity = Math.max(0, 1 - ((scrollProgress - 0.4) * 2));
+                
+                const targetSectionOpacity = Math.min(1, (scrollProgress - 0.6) * 3);
+                const targetSectionScale = 0.8 + (scrollProgress - 0.6) * 0.8;
+                const targetSectionY = 50 - (targetSectionOpacity * 50);
+
+                // Update current values with lag
+                currentTextScale += (targetTextScale - currentTextScale) * textLag;
+                currentTextOpacity += (targetTextOpacity - currentTextOpacity) * textLag;
+                currentTextY += (targetTextY - currentTextY) * textLag;
+                currentLetterSpacing += (targetLetterSpacing - currentLetterSpacing) * letterSpacingLag;
+                
+                currentOverlayOpacity += (targetOverlayOpacity - currentOverlayOpacity) * overlayLag;
+                currentBackgroundOpacity += (targetBackgroundOpacity - currentBackgroundOpacity) * overlayLag;
+                
+                currentSectionOpacity += (targetSectionOpacity - currentSectionOpacity) * sectionLag;
+                currentSectionScale += (targetSectionScale - currentSectionScale) * sectionLag;
+                currentSectionY += (targetSectionY - currentSectionY) * sectionLag;
+
+                // Apply transformations
+                heroHeading.style.transform = `scale(${currentTextScale}) translateY(${currentTextY}px)`;
+                heroHeading.style.opacity = currentTextOpacity;
+                heroHeading.style.letterSpacing = `${currentLetterSpacing}em`;
+                transitionOverlay.style.backgroundColor = `rgba(26, 26, 26, ${currentOverlayOpacity})`;
+                heroBackground.style.opacity = currentBackgroundOpacity;
+                secondSection.style.opacity = currentSectionOpacity;
+                secondSection.style.transform = `scale(${currentSectionScale}) translateY(${currentSectionY}px)`;
+
+                // Update z-index logic
+                secondSection.style.zIndex = scrollProgress > 0.6 ? 3 : 0;
             }
-            lenis.on('scroll', ({ scroll }) => updateAnimations(scroll));
+
+            lenis.on('scroll', ({ scroll }) => {
+                requestAnimationFrame(() => updateTargets(scroll));
+            });
+
             function raf(time) {
                 lenis.raf(time);
                 requestAnimationFrame(raf);
             }
+
             requestAnimationFrame(raf);
         });
     </script>

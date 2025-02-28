@@ -1,0 +1,466 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Satoshi', sans-serif;
+    background-color: rgb(245, 245, 245);
+    overflow-x: hidden;
+}
+header {
+    display: none;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2.5rem;
+    position: fixed; /* Added to make it sticky */
+    top: 0; /* Added to make it sticky */
+    width: 95%; /* Added to make it span the full width */
+    background-color: rgb(245, 245, 245) ;
+    z-index: 1000; /* Added z-index */
+}
+
+header img {
+    height: 3.5rem;
+}
+header {
+    transition: background-color 0.5s ease; /* Add transition effect */
+}
+
+/* Style for scrolled state */
+header.scrolled {
+    background-color: black; /* Change background color on scroll */
+}
+header.scrolled h1 {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+
+
+
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+}
+
+/* Additional CSS styles for the nav links */
+nav a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Change link color as needed */
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.ftr-flex{
+    display: flex;
+    justify-content: left;
+    gap:24rem;
+    align-items: center;
+    margin :4rem 0;
+
+}
+
+ul{
+   list-style: none;
+   padding: 0;
+  
+   
+
+}
+li {
+    line-height: 1.5; /* Adjust as needed */
+}
+footer{
+    background-color: rgb(13, 13, 11);
+    color: white;
+    padding: 2rem 4rem;
+}
+footer p{
+    color: white;
+    
+}
+.p{
+    margin-top: 0px;
+    font-size: 3rem;
+    font-weight: 600;
+}
+.p1{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+    font-size: 2.5rem;
+}
+.ftr2{
+    border-left: 1px solid rgb(95, 95, 94);
+    padding: 0 4rem;
+}
+.ftr-p p{
+    color: rgb(180, 180, 179);
+    font-size: 14px;
+    
+}
+footer form input{
+    color:rgb(180, 180, 179) ;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(95, 95, 94);
+    width: 22rem;
+    padding: .5rem;
+}
+footer form textarea{
+    color:rgb(180, 180, 179) ;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+footer form label{
+    color:rgb(180, 180, 179) ;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.ftr-flex1{
+    display: flex;
+    justify-content: left;
+    gap: 2rem;
+}
+/* Default button styles */
+footer button {
+    border: none;
+    background-color: rgb(196, 144, 30);
+    padding: .7rem 2rem;
+    border-radius: 2rem;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect */
+footer button:hover {
+    transform: scale(1.1); /* Scale up the button */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a shadow */
+}
+
+
+.ftr-p{
+    display: flex;
+    justify-content: space-between;
+}
+.icon{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+}
+.icon1{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+   
+}
+
+.icn{
+    font-size: 2rem;
+}
+.in{
+    width: 47rem;
+}
+.sec11{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20rem;
+    /* background-color: rgb(245, 245, 245); */
+}
+.sec11 h1{
+    font-size: 3rem;
+    font-weight: 600;
+}
+.sec2{
+    padding: 4rem;
+    background-color: rgb(245, 245, 245);
+}
+.sec2 p{
+    color: rgb(102, 102, 102);
+    font-size: 2.3rem;
+
+}
+.sec2 span{
+    color: black;
+}
+.sec3 {
+    position: relative;
+    background-color: rgb(245, 245, 245);
+}
+
+.logo-container {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    position: relative;
+    padding: 0 50px;
+    background-color: #f5f5f5; /* Lighter background color */
+}
+
+.sec3::before,
+.sec3::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50px; /* Adjust the width of the shadow */
+    height: 100%;
+    background: linear-gradient(to right, rgba(245, 245, 245, 0), #f5f5f5); /* Left shadow */
+    background: linear-gradient(to left, rgba(245, 245, 245, 0), #f5f5f5); /* Left shadow */
+}
+
+
+.logo-container img {
+    margin-right: 20px; 
+    height: 3rem;
+    width: 10rem;
+}
+.sec3{
+    padding: 2rem 0;
+    background-color: rgb(245, 245, 245);
+}
+.sec3 h1{
+    font-size: 3rem;
+    font-weight: 600;
+    color:rgb(167, 167, 167);
+    padding: 4rem;
+}
+.sec-4 h1{
+    font-size: 3rem;
+    font-weight: 600;
+   
+
+}
+.sec-4 h2{
+    font-weight: 500;
+    font-size: 2rem;
+}
+.sec-4{
+    padding: 4rem;
+    background-color: rgb(245, 245, 245);
+
+}
+.card {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease; /* Add transition for smooth animation */
+}
+
+/* Hover effect */
+.card:hover {
+    background-color: black;
+    transform: scale(1.1); /* Increase size on hover */
+}
+
+.card:hover h2 {
+    color: rgb(206, 163, 68); /* Change h2 color on hover */
+}
+
+.card:hover p {
+    color: white; /* Change p color on hover */
+}
+.card-flex{
+   
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+.sec4-p{
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Adjust the gap between images */
+}
+
+.image-grid img {
+    width: 100%; /* Make images fill the grid cells */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
+.sec-5{
+    padding:4.5rem 1rem;
+    background-color: #0a0a0a;
+   
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Adjust the gap between images */
+}
+
+.image-grid img {
+    width: 100%; /* Make images fill the grid cells */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add border radius for rounded corners */
+}
+
+/* Set specific width for the second and fourth images */
+.image-grid img:nth-child(2){
+    
+    height: 25rem; /* Maintain aspect ratio */
+}
+.image-grid img:nth-child(5) {
+    height: 21rem;
+
+}
+
+.image-grid1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 1rem; /* Adjust gap between images */
+}
+
+.image-grid1 img {
+    width: 100%; /* Ensure images take full width of their container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.sec-6{
+    padding: 4rem;
+    background-color: #262626;
+    color: white;
+
+}
+.sec-6 h1{
+    font-size: 3rem;
+    font-weight: 600;
+
+}
+.sec6-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sec6-p{
+    color: rgb(206, 163, 68);
+    font-size: 1.5rem;
+}
+.sec-6 a{
+    color: black;
+    text-decoration: none;
+    padding: .4rem 1rem;
+    background-color:  rgb(245, 245, 245);
+    border-radius: 2rem;
+}
+.sec6-flex1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.sec6-1{
+    text-align: center;
+}
+.sec6-1 p{
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+.sec-7{
+    padding: 4rem;
+    background-color: rgb(245, 245, 245);
+
+}
+.sec-7 h1{
+    font-size: 3rem;
+    font-weight: 600;
+
+}
+.sec7-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.sec7-p{
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+.sec-7 h2{
+    font-weight: 400;
+}
+.sec7-p1{
+    font-weight: 200;
+    font-size: 1.4rem;
+}
+.video-container {
+    position: fixed;
+    /* position: relative; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    padding: auto;
+    margin: auto;
+    z-index: 1; /* Ensure the video is behind other content */
+}
+.video-container h1{
+    position: absolute;
+    /* width: 100%;
+    height: 100%; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:fit-content;
+    height:fit-content;
+ z-index: 10;
+
+
+ white-space: nowrap;
+ font-size: 3rem;
+}
+@keyframes zoomIn {
+    from {
+      transform: scale(0.5); /* Start from 0 scale */
+      opacity: 0; /* Start from fully transparent */
+    }
+    to {
+      transform: scale(1); /* End at full scale */
+      opacity: 1; /* End at fully opaque */
+    }
+  }
+  
+  .zoom-in-animation {
+    animation: zoomIn 0.5s ease; /* Apply zoom-in animation over 0.5 seconds with ease timing function */
+  }
+
+#video-bg {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
