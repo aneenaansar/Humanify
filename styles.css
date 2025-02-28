@@ -5,7 +5,7 @@
   }
   
   body {
-    font-family: "Haffer TRIAL";
+    font-family: var(--uicore-typography--h1-f, "Inter");
   }
   
   h1 {
