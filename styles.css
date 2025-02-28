@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Haffer TRIAL";
+  }
+  
+  h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 2.5em;
+    color: #fff;
+  }
+  
+  p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  
+  .hero,
+  .intro,
+  .outro {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding: 2em;
+  }
+  
+  .hero {
+    padding: 0;
+  }
+  
+  
+  .outro {
+    background-color: black;
+    display: flex;
+    align-items: center;
+  }
+  
+  .intro h1,
+  .outro h1 {
+    margin-bottom: 0;
+  }
+  
+ 
+  @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 100vh; /* Full viewport height */
+        padding: 2rem;
+        margin: 0 auto;
+ 
+        background: black;
+    }
+
+    .intro-heading {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        max-width: 800px;
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #666;
+        max-width: 800px;
+        margin: 0 auto;
+        animation: fadeInUp 1s ease-out forwards;
+    }
+
+    .intro div {
+        display: none; /* Hide empty div */
+    }
+
+    @media (max-width: 768px) {
+        .intro-heading {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .intro-text {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .intro-heading {
+            font-size: 1.5rem;
+        }
+    }
+  .card {
+    position: relative;
+  }
+  
+  .card-inner {
+    position: relative;
+    will-change: transform;
+    width: 100%;
+    height: 100%;
+    padding: 2em;
+    display: flex;
+    gap: 4em;
+  }
+  
+  .card-content {
+    flex: 3;
+  }
+  
+  #card-1 .card-inner {
+    background-color: #2C6737;
+  }
+  
+  #card-2 .card-inner {
+    background-color: #858585;
+  }
+  
+  #card-3 .card-inner {
+    background-color: #2C6737;
+  }
+  #card-5 .card-inner {
+    background-color: #858585;
+  }
+  
+  #card-4 .card-inner {
+    background-color: #1e1e1e;
+    color: #fff;
+  }
+  
+  #card-5 .card-inner {
+    background-color: #858585;
+  }
+  #card-6 .card-inner {
+    background-color: #2C6737;
+  }
+  #card-7 .card-inner {
+    background-color: #1e1e1e;
+    color: #fff;
+  }
+  #card-8 .card-inner {
+    background-color: #858585;
+  }
+  #card-9 .card-inner {
+    background-color: #2C6737;
+  }
+  
+  @media (max-width: 900px) {
+    h1 {
+      margin-bottom: 4rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  
+    .card-inner {
+      flex-direction: column;
+    }
+  
+    .card-img {
+      display: none;
+    }
+  }
+  
