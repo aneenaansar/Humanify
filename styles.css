@@ -50,18 +50,6 @@ body {
   border-bottom: 2px solid #1a9d32; /* Add a border on hover */
 }
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-
-.menu-toggle .bar {
-  width: 25px;
-  height: 3px;
-  background-color: #fff;
-  margin: 4px 0;
-}
 /* header styles starts here  */
 
 
