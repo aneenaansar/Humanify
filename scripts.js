@@ -293,20 +293,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Add mobile menu close functionality
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.querySelector('.menu-toggle').classList.remove('active');
-    document.querySelector('.nav-links').classList.remove('active');
-  });
-});
+// // Add mobile menu close functionality
+// document.querySelectorAll('.nav-links a').forEach(link => {
+//   link.addEventListener('click', () => {
+//     document.querySelector('.menu-toggle').classList.remove('active');
+//     document.querySelector('.nav-links').classList.remove('active');
+//   });
+// });
 
-// Optimize animations for mobile
-ScrollTrigger.matchMedia({
-  "(max-width: 768px)": function() {
-    ScrollTrigger.defaults({
-      toggleActions: "play none none none",
-      scrub: false
-    });
-  }
-});
+// // Optimize animations for mobile
+// ScrollTrigger.matchMedia({
+//   "(max-width: 768px)": function() {
+//     ScrollTrigger.defaults({
+//       toggleActions: "play none none none",
+//       scrub: false
+//     });
+//   }
+// });
