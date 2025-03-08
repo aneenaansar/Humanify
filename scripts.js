@@ -293,12 +293,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  menuToggle.addEventListener('click', function() {
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
+// Add mobile menu close functionality
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.querySelector('.menu-toggle').classList.remove('active');
+    document.querySelector('.nav-links').classList.remove('active');
   });
+});
+
+// Optimize animations for mobile
+ScrollTrigger.matchMedia({
+  "(max-width: 768px)": function() {
+    ScrollTrigger.defaults({
+      toggleActions: "play none none none",
+      scrub: false
+    });
+  }
 });
