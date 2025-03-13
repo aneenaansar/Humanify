@@ -61,59 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
   createBackgroundTransition(document.querySelector('.contact'), sectionColors.contact.background);
   createBackgroundTransition(document.querySelector('.footer'), sectionColors.footer.background);
 
-  // Text animations - Apply to all headings and paragraphs
-  // Split text utility function
-  function splitTextAnimation(elements, staggerAmount = 0.05, delay = 0) {
-  if (!elements || elements.length === 0) return;
-  
-  elements.forEach(element => {
-    if (!element) return;
-    
-    // Create wrapper for text animation
-    const words = element.textContent.split(' ');
-    element.textContent = '';
-    
-    words.forEach(word => {
-      const wordSpan = document.createElement('span');
-      wordSpan.classList.add('animate-word');
-      wordSpan.style.display = 'inline-block';
-      wordSpan.style.overflow = 'hidden';
-      
-      const innerSpan = document.createElement('span');
-      innerSpan.classList.add('animate-inner');
-      innerSpan.style.display = 'inline-block';
-      innerSpan.style.transform = 'translateY(100%)';
-      innerSpan.textContent = word + ' ';
-      
-      wordSpan.appendChild(innerSpan);
-      element.appendChild(wordSpan);
-    });
-    
-    // Create animation for this element
-    const spans = element.querySelectorAll('.animate-inner');
-    gsap.to(spans, {
-      y: 0,
-      duration: 0.8,
-      ease: "power2.out",
-      stagger: staggerAmount,
-      delay: delay,
-      scrollTrigger: {
-        trigger: element,
-        start: "top 85%",
-        toggleActions: "play none none reverse"
-      }
-    });
-  });
-}
-
-  // Apply text animations to different sections
-  splitTextAnimation(document.querySelectorAll('.second-section h2, .second-section p'), 0.01);
-  splitTextAnimation(document.querySelectorAll('.intro-heading'), 0.05);
-  splitTextAnimation(document.querySelectorAll('.intro-text'), 0.03, 0.3);
-  splitTextAnimation(document.querySelectorAll('.card h1'), 0.03);
-  splitTextAnimation(document.querySelectorAll('.flex h3, .flex p'), 0.03, 0.2);
-  splitTextAnimation(document.querySelectorAll('.contact-heading, .contact-subheading'), 0.04);
-
   // Hero Section Animations
   const heroSection = document.querySelector('.hero');
   const heroElements = {
@@ -125,7 +72,8 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // Set initial states
-  gsap.set(heroElements.headingAlt, { opacity: 0, scale: 2 });
+  gsap.set(heroElements.heading, { scale: 1, opacity: 1 });
+  gsap.set(heroElements.secondSection, { opacity: 0 });
 
   const heroTimeline = gsap.timeline({
     scrollTrigger: {
@@ -140,54 +88,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Animation sequence
   heroTimeline
-    // Background color transition to white at 50% scroll
-    .to(heroElements.transitionOverlay, {
-      backgroundColor: "rgba(255, 255, 255, 1)",
-      duration: 1
-    }, 0.5)
-    
-    // Fade out first heading
+    // Zoom out the hero image
     .to(heroElements.heading, {
+      scale: 10,
       opacity: 0,
-      duration: 0.3
-    }, 0.5)
-    
-    // Fade in second heading at scaled-up state
-    .to(heroElements.headingAlt, {
+      duration: 1.5,
+      ease: "power4.in"
+    })
+    // Transition to white screen
+    .to(heroElements.transitionOverlay, {
+      backgroundColor: "#ffffff",
+      duration: 1,
+      ease: "power2.inOut"
+    })
+    // Show the next sections
+    .to(heroElements.secondSection, {
       opacity: 1,
-      duration: 0.3
-    }, 0.6)
-    
-    // Zoom out effect on second heading (from scale 2 to 1)
-    .to(heroElements.headingAlt, {
-      scale: 1,
-      duration: 0.4
-    }, 0.6)
-    
-    // Fade out background at the end of scroll
-    .to(heroElements.background, {
-      opacity: 0,
-      duration: 0.5
-    }, 1);
-
-  // Second Section Animation
-  gsap.set(heroElements.secondSection, {
-    opacity: 0,
-    y: 50
-  });
-
-  ScrollTrigger.create({
-    trigger: heroSection,
-    start: "bottom bottom",
-    onEnter: () => {
-      gsap.to(heroElements.secondSection, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power2.out"
-      });
-    }
-  });
+      duration: 1,
+      ease: "power2.out"
+    }, "+=0.5");
 
   // Add letter animation to nav links
   const navLinks = document.querySelectorAll('.nav-links a');
@@ -350,21 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-
-  // Add text reveal animation to all headings in cards
-  document.querySelectorAll('.card h1').forEach(heading => {
-    gsap.from(heading, {
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: heading.closest('.card'),
-        start: "top 70%",
-        toggleActions: "play none none reverse"
-      }
-    });
-  });
 
   // Contact Section Animations
   const contactElements = {

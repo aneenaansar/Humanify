@@ -173,7 +173,7 @@ h1 span, h2 span, h3 span {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  /* background-color: rgba(0, 0, 0, 0.4); */
   z-index: 1;
   transition: background-color 1.2s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: background-color;
@@ -194,7 +194,7 @@ h1 span, h2 span, h3 span {
   justify-content: center;
   text-align: center;
   padding: 120px 20px;
-  background-color: #1a1a1a;
+  /* background-color: #1a1a1a; */
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
@@ -370,7 +370,7 @@ p {
   position: relative;
   overflow: hidden;
   text-align: center;
-  background: rgba(0, 0, 0, 0.9);
+  /* background: rgba(0, 0, 0, 0.9); */
 }
 
 .intro::before {
@@ -378,12 +378,12 @@ p {
   position: absolute;
   width: 200%;
   height: 200%;
-  background: linear-gradient(
+  /* background: linear-gradient(
       45deg,
       transparent 0%,
       rgba(18, 128, 38, 0.1) 50%,
       transparent 100%
-  );
+  ); */
   animation: bgMove 20s linear infinite;
   z-index: 0;
 }
@@ -393,14 +393,14 @@ p {
   content: '';
   position: absolute;
   inset: -2px;
-  background: linear-gradient(
+  /* background: linear-gradient(
     45deg,
     #2C6737,
     #7abf8a,
     #1e1e1e,
     #858585,
     #2C6737
-  );
+  ); */
   background-size: 400% 400%;
   animation: gradientBorder 8s ease infinite;
   z-index: -1;
@@ -449,7 +449,7 @@ p {
   position: relative;
   overflow: hidden;
   text-align: center;
-  background: rgba(0, 0, 0, 0.9);
+  /* background: rgba(0, 0, 0, 0.9); */
 
 }
 
@@ -458,12 +458,12 @@ p {
   position: absolute;
   width: 200%;
   height: 200%;
-  background: linear-gradient(
+  /* background: linear-gradient(
       45deg,
       transparent 0%,
       rgba(255,77,77,0.1) 50%,
       transparent 100%
-  );
+  ); */
   animation: bgMove 20s linear infinite;
   z-index: 0;
 }
@@ -583,14 +583,11 @@ p {
 }
 
 #card-2 .card-inner {
-  background-color: #858585;
+  background-color: #1e1e1e;
 }
 
 #card-3 .card-inner {
   background-color: #2C6737;
-}
-#card-5 .card-inner {
-  background-color: #858585;
 }
 
 #card-4 .card-inner {
@@ -599,17 +596,17 @@ p {
 }
 
 #card-5 .card-inner {
-  background-color: #858585;
-}
-#card-6 .card-inner {
   background-color: #2C6737;
 }
-#card-7 .card-inner {
+#card-6 .card-inner {
   background-color: #1e1e1e;
+}
+#card-7 .card-inner {
+  background-color: #2C6737;
   color: #fff;
 }
 #card-8 .card-inner {
-  background-color: #858585;
+  background-color: #1e1e1e;
 }
 #card-9 .card-inner {
   background-color: #2C6737;
